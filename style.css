@@ -1,0 +1,16 @@
+body {
+  background-color: mistyrose
+}
+
+article {
+  width: 50%;
+  left: 40em;
+  background-color: peru;
+}
+
+div {
+  display: inline-block;
+  width: 32%
+
+
+}
