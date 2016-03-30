@@ -1,16 +1,16 @@
-board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ]
+board = ['X', '', '', '', 'X', '', '', '', 'X' ]
 
 var moveBtn = document.getElementById("move")
 var gameBoard = document.querySelector("#gameBoard")
 
 
-function checkWin() {
-    if (checkWin[0] === checkWin[1] && checkWin[2] === checkWin[1]) {
-        if (checkWin[0] !== '') {
-            console.log("t" + checkWin[0])
-        }
-    }
-}
+// function checkWin() {
+//     if (checkWin[0] === checkWin[1] && checkWin[2] === checkWin[1]) {
+//         if (checkWin[0] !== '') {
+//             console.log("t" + checkWin[0])
+//         }
+//     }
+// }
 
 winningCombo = [
     [0, 1, 2],
@@ -24,10 +24,22 @@ winningCombo = [
 ]
 
 function checkWinner(array) {
-    for (i = 0; i < winningCombo.length; i++) {
+  console.log('check winner');
+  console.log([array[0],array[1]].join())
+  console.log([array[0],array[1],array[2]].join(''));
 
-    }
-}
+    for (i = 0; i < winningCombo.length; i++) {
+      console.log(array[winningCombo[i][0]]);
+      if ([array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join('') === 'XXX')
+       {
+        console.log("The winner is X");
+      }
+      else if ([array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join() === 'OOO') {
+        console.log("The winner is O");
+      }
+      
+    }}
+
 
 
 function refreshBoard() {
@@ -63,3 +75,5 @@ gameBoard.addEventListener('click', function(event) {
     //   event.target.className = 'done';
     // }
 })
+
+checkWinner(board)

@@ -1,19 +1,30 @@
+/** {
+  padding: 0;
+  margin: 0;
+}*/
+
 body {
   background-color: mistyrose
+
 }
 
 #gameBoard {
-  width: 80%;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
   background-color: peru;
 }
 
 
 #gameBoard div {
   background-color: purple;
+  box-sizing: border-box;
   border:2px solid white;
   display: inline-block;
-  width: 32%;
-  min-height: 100px;
+  width: 196px;
+  height: 196px;
+  margin: 0 auto;
   color: white;
   font-size: 5em;
+  vertical-align: top;
 }
