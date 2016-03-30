@@ -33,12 +33,12 @@ moveBtn.addEventListener("click", refreshBoard);
 gameBoard.addEventListener('click', function(event) {
   console.log(event.target);
   console.log(event);
-  if (event.target.tagName === "DIV"){
+//   if (event.target.tagName === "DIV"){
 
-  if (event.target.className === 'done'){
-    event.target.className = '';
-  }
-  else if (event.target.className === ''){
-  event.target.className = 'done';
-}
-}
+//   if (event.target.className === 'done'){
+//     event.target.className = '';
+//   }
+//   else if (event.target.className === ''){
+//   event.target.className = 'done';
+// }
+})

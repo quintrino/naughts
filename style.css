@@ -2,14 +2,18 @@ body {
   background-color: mistyrose
 }
 
-article {
-  width: 50%;
+#gameBoard {
+  width: 80%;
   background-color: peru;
 }
 
-div {
+
+#gameBoard div {
+  background-color: purple;
+  border:2px solid white;
   display: inline-block;
-  width: 32%
-
-
+  width: 32%;
+  height: 32%;
+  color: white;
+  font-size: 5em;
 }
