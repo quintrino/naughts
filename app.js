@@ -1,4 +1,4 @@
-board = ['X', '', '', '', 'X', '', '', '', 'X' ]
+board = ['', '', '', '', '', '', '', '', '']
 
 var moveBtn = document.getElementById("move")
 var gameBoard = document.querySelector("#gameBoard")
@@ -24,21 +24,20 @@ winningCombo = [
 ]
 
 function checkWinner(array) {
-  console.log('check winner');
-  console.log([array[0],array[1]].join())
-  console.log([array[0],array[1],array[2]].join(''));
+    // console.log('check winner');
+    // console.log([array[0], array[1]].join())
+    // console.log([array[0], array[1], array[2]].join(''));
 
     for (i = 0; i < winningCombo.length; i++) {
-      console.log(array[winningCombo[i][0]]);
-      if ([array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join('') === 'XXX')
-       {
-        console.log("The winner is X");
-      }
-      else if ([array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join() === 'OOO') {
-        console.log("The winner is O");
-      }
-      
-    }}
+        // console.log(array[winningCombo[i][0]]);
+        if ([array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join('') === 'XXX') {
+            console.log("The winner is X");
+        } else if ([array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join() === 'OOO') {
+            console.log("The winner is O");
+        }
+
+    }
+}
 
 
 
@@ -61,11 +60,22 @@ function refreshBoard() {
 
 moveBtn.addEventListener("click", refreshBoard);
 
-
+Turn = 'X';
 
 gameBoard.addEventListener('click', function(event) {
-    console.log(event.target);
-    console.log(event);
+    // console.log(event.target);
+    // console.log(event);
+    if (event.target.innerHTML === '') {
+        event.target.innerHTML = Turn;
+        board[Number(event.target.id)] = Turn
+        if (Turn === 'X') {
+            Turn = 'O'
+        }
+        else {
+          Turn = 'X'
+        }
+    }
+    checkWinner(board)
     //   if (event.target.tagName === "DIV"){
 
     //   if (event.target.className === 'done'){
