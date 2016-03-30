@@ -1,6 +1,6 @@
-board = ['','','','','','','','','',]
+board = ['3','','','','','','','','',]
 
-
+var moveBtn = document.getElementById("move")
 
 function checkWin() {
  if (checkWin[0] === checkWin[1] && checkWin[2] === checkWin[1]) {
@@ -11,11 +11,18 @@ function checkWin() {
 }
 
 
+function refreshBoard() {
+console.log('clicked');
 for (var i=0; i<board.length; i++) {
-var box = document.createElement('div')
+console.log(board[i])
+var box = document.createElement('div');
 box.innerHTML = board[i];
 
-
-document.querySelector('board').appendChild(box);
+console.log(document.querySelector(".gameBoard"))
+// document.querySelector(".gameBoard").appendChild(box);
 
 }
+}
+
+moveBtn.addEventListener("click", refreshBoard);
+
