@@ -7,13 +7,19 @@ body {
   background-color: grey;
 
 
+
 }
 
 #gameBoard {
-  width: 600px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
   margin: 0 auto;
   background-color: none;
+  border-left-width: 10px;
+  border-left-color: red;
+  background-color: grey;
+  border-radius: 10px;
+
 }
 
 
@@ -22,11 +28,11 @@ body {
   box-sizing: border-box;
   border-radius: 200px;
   text-align: center;
-  border:2px solid white;
+  border:2px solid #d3d3d3;
   display: inline-block;
   position: relative;
-  width: 196px;
-  height: 196px;
+  width: 130px;
+  height: 130px;
   margin: 0 auto;
   line-height: -140px;
   font-size: 0;

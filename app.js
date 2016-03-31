@@ -3,11 +3,11 @@ board = ['', '', '', '', '', '', '', '', '']
 var moveBtn = document.getElementById("move")
 var gameBoard = document.querySelector("#gameBoard")
 
-var xColor = 'White';
-var oColor = 'Black';
+var xColor = 'WHITE';
+var oColor = 'BLACK';
 
-var colorPicker = document.getElementById("myBtn")
-
+var colorPicker = document.getElementById("myBtn");
+var turnSection = document.getElementById('turn');
 var playerTurn = 'X';
 
 winningCombo = [
@@ -25,17 +25,18 @@ function colorDetermine(playerTurn){
 return (playerTurn === 'X') ? xColor : oColor
 }
 
-// document.getElementById('turn').innerHTML = 'White'
 function checkWinner(array) {
- // console.log([array[0], array[1], array[2]].join(''));
     for (i = 0; i < winningCombo.length; i++) {
         // console.log(array[winningCombo[i][0]]);
         Line = [array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join('')
         if (Line === 'XXX') {
+            document.getElementById('body').style = "background-color = " + xColor;
             alert("The winner is " + xColor);
           resetBoard();
         } else if (Line === 'OOO') {
+          document.getElementById('body').style = "background-color = " + oColor;
             alert("The winner is " + oColor);
+
             resetBoard();
         }
 
@@ -44,15 +45,15 @@ function checkWinner(array) {
         alert("it's a tie!")
         resetBoard()
     }
-    document.getElementById('turn').innerHTML = colorDetermine(playerTurn);
+    turnSection.innerHTML = colorDetermine(playerTurn);
 }
 
 function resetBoard() {
     board = ['', '', '', '', '', '', '', '', ''];
     for (var i = 0; i < 9; i++) {
-    document.getElementById(i).style = "background-color : 'grey'";
-}
-
+    document.getElementById(i).style = "background-color : grey";
+  }
+    gameBoard.style = "background-color : 'grey'";
     refreshBoard();
 }
 
@@ -80,6 +81,7 @@ gameBoard.addEventListener('click', function(event) {
             playerTurn = 'X'
         }
     }
+        gameBoard.style = "background-color :" + colorDetermine(playerTurn);
     checkWinner(board)
 })
 
