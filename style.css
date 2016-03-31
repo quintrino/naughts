@@ -4,7 +4,8 @@
 }*/
 
 body {
-  background-color: mistyrose
+  background-color: grey;
+
 
 }
 
@@ -12,19 +13,28 @@ body {
   width: 600px;
   height: 600px;
   margin: 0 auto;
-  background-color: peru;
+  background-color: none;
 }
 
 
 #gameBoard div {
-  background-color: purple;
+  background-color: grey;
   box-sizing: border-box;
+  border-radius: 200px;
+  text-align: center;
   border:2px solid white;
   display: inline-block;
+  position: relative;
   width: 196px;
   height: 196px;
   margin: 0 auto;
-  color: white;
-  font-size: 5em;
-  vertical-align: top;
+  line-height: -140px;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+#gameBoard div p {
+  top: 50px;
+  background-color: red
+  position: relative;
 }
