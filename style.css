@@ -65,6 +65,7 @@ body {
   /*line-height: -140px;*/
   font-size: 0;
   vertical-align: middle;
+  transition: 1s;
 }
 
 #gameBoard div p {

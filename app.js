@@ -8,6 +8,7 @@ var oColor = 'BLACK';
 
 var colorPicker = document.getElementById("myBtn");
 var turnSection = document.getElementById('turn');
+var message = document.getElementById('message');
 var playerTurn = 'X';
 var aiPlayer = true;
 
@@ -43,11 +44,11 @@ function checkWinner(array) {
         Line = [array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join('')
         if (Line === 'XXX') {
             document.getElementById('body').style.backgroundColor = xColor;
-            alert("The winner is " + xColor);
+            message.innerHTML ="The winner is " + xColor;
           resetBoard();
         } else if (Line === 'OOO') {
           document.getElementById('body').style.backgroundColor = oColor;
-            alert("The winner is " + oColor);
+            message.innerHTML = "The winner is " + oColor;
 
             resetBoard();
         }
@@ -78,7 +79,7 @@ function refreshBoard() {
     }
 }
 
-moveBtn.addEventListener("click", resetBoard());
+moveBtn.addEventListener("click", function() {resetBoard()});
 
 var playerColor = 'red'
 
