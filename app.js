@@ -9,6 +9,8 @@ var oColor = 'BLACK';
 var colorPicker = document.getElementById("myBtn");
 var turnSection = document.getElementById('turn');
 var playerTurn = 'X';
+var aiPlayer = true;
+
 
 winningCombo = [
     [0, 1, 2],
@@ -25,16 +27,26 @@ function colorDetermine(playerTurn){
 return (playerTurn === 'X') ? xColor : oColor
 }
 
+function ai() {
+  moves = []
+  for (i = 0; i < board.length; i++) {
+    if (board[i] === '')
+      moves.push(i)
+  }
+  return moves[Math.floor(Math.random() * moves.length)]
+
+}
+
 function checkWinner(array) {
     for (i = 0; i < winningCombo.length; i++) {
         // console.log(array[winningCombo[i][0]]);
         Line = [array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join('')
         if (Line === 'XXX') {
-            document.getElementById('body').style = "background-color = " + xColor;
+            document.getElementById('body').style.backgroundColor = xColor;
             alert("The winner is " + xColor);
           resetBoard();
         } else if (Line === 'OOO') {
-          document.getElementById('body').style = "background-color = " + oColor;
+          document.getElementById('body').style.backgroundColor = oColor;
             alert("The winner is " + oColor);
 
             resetBoard();
@@ -51,10 +63,11 @@ function checkWinner(array) {
 function resetBoard() {
     board = ['', '', '', '', '', '', '', '', ''];
     for (var i = 0; i < 9; i++) {
-    document.getElementById(i).style = "background-color : grey";
+    document.getElementById(i).style.backgroundColor = "grey";
   }
-    gameBoard.style = "background-color : 'grey'";
-    refreshBoard();
+    gameBoard.style.backgroundColor ='grey';
+    document.getElementById('body').style.backgroundColor = 'grey'
+        refreshBoard();
 }
 
 function refreshBoard() {
@@ -65,13 +78,19 @@ function refreshBoard() {
     }
 }
 
-moveBtn.addEventListener("click", refreshBoard);
+moveBtn.addEventListener("click", resetBoard());
 
 var playerColor = 'red'
 
 gameBoard.addEventListener('click', function(event) {
+    // if (playerTurn === 'O' && aiPlayer === true) {
+    //   console.log(ai());
+    //   document.getElementById(ai().toString()).innerHTML = 'X' 
+    //   gameBoard.style.backgroundColor = colorDetermine(playerTurn);
+    //   return true;
+    
     if (event.target.innerHTML === '') {
-        event.target.style = "background-color :" + colorDetermine(playerTurn);
+        event.target.style.backgroundColor = colorDetermine(playerTurn);
         board[Number(event.target.id)] = playerTurn
         event.target.innerHTML = playerTurn;
         console.log(playerTurn);
@@ -80,10 +99,10 @@ gameBoard.addEventListener('click', function(event) {
         } else {
             playerTurn = 'X'
         }
-    }
-        gameBoard.style = "background-color :" + colorDetermine(playerTurn);
+    
+        gameBoard.style.backgroundColor = colorDetermine(playerTurn);
     checkWinner(board)
-})
+}})
 
 
 function goodColor(colour)
@@ -110,17 +129,20 @@ colorPicker.addEventListener('click', function() {
   if (color1 === color2) {
     return false;
   }
-  
+  // console.log(goodColor(color1));
+  // console.log(goodColor(color2));
   if (goodColor(color1) === true) {
-    console.log('good color 1 attempt')
     xColor = document.getElementById("color1").value.toUpperCase();
+    gameBoard.style.borderLeft = "50px solid " + xColor;
   }
   if (goodColor(color2) === true) {
     oColor = document.getElementById("color2").value.toUpperCase();
+    gameBoard.style.borderRight = "50px solid " + oColor;
   }
 }
 )
 
+// console.dir(document.getElementById("color2").style);
 
 
 refreshBoard(board)
