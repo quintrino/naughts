@@ -22,7 +22,9 @@ body {
 
 }
 input {
-  height: 30px
+  height: 30px;
+  width: 120px;
+  font-size: 20px;
 }
 
 button {
@@ -86,6 +88,13 @@ button {
   top: 50px;
   background-color: black; 
   position: relative;
+}
+#message {
+  clear: both;
+}
+#reset {
+  display: block;
+  text-align: center;
 }
 
 @media (max-width: 500px) {
