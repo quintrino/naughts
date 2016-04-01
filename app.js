@@ -1,4 +1,29 @@
 board = ['', '', '', '', '', '', '', '', '']
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("modal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+// btn.onclick = function() {
+    // modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 var moveBtn = document.getElementById("move")
 var gameBoard = document.querySelector("#gameBoard")
@@ -11,6 +36,7 @@ var turnSection = document.getElementById('turn');
 var message = document.getElementById('message');
 var playerTurn = 'X';
 var aiPlayer = true;
+var alert = document.getElementById('alert')
 
 
 winningCombo = [
@@ -44,13 +70,16 @@ function checkWinner(array) {
         Line = [array[winningCombo[i][0]], array[winningCombo[i][1]], array[winningCombo[i][2]]].join('')
         if (Line === 'XXX') {
             document.getElementById('body').style.backgroundColor = xColor;
-            message.innerHTML ="The winner is " + xColor;
           resetBoard();
+            alert.innerHTML ="The winner is " + xColor;
+            modal.style.display = "block"
         } else if (Line === 'OOO') {
           document.getElementById('body').style.backgroundColor = oColor;
-            message.innerHTML = "The winner is " + oColor;
-
             resetBoard();
+
+            alert.innerHTML = "The winner is " + oColor;
+            modal.style.display = "block"
+
         }
 
     }
@@ -62,12 +91,15 @@ function checkWinner(array) {
 }
 
 function resetBoard() {
-    board = ['', '', '', '', '', '', '', '', ''];
+    setTimeout(function(){
     for (var i = 0; i < 9; i++) {
-    document.getElementById(i).style.backgroundColor = "grey";
+    document.getElementById(i).style.backgroundColor = '#BDBDBD';
   }
-    gameBoard.style.backgroundColor ='grey';
-    document.getElementById('body').style.backgroundColor = 'grey'
+    gameBoard.style.backgroundColor ='#BDBDBD';
+    document.getElementById('body').style.backgroundColor = '#40C4FF'
+      
+    }, 1500)
+    board = ['', '', '', '', '', '', '', '', ''];
         refreshBoard();
 }
 
@@ -94,14 +126,14 @@ gameBoard.addEventListener('click', function(event) {
         event.target.style.backgroundColor = colorDetermine(playerTurn);
         board[Number(event.target.id)] = playerTurn
         event.target.innerHTML = playerTurn;
-        console.log(playerTurn);
+        // console.log(playerTurn);
         if (playerTurn === 'X') {
             playerTurn = 'O'
         } else {
             playerTurn = 'X'
         }
     
-        gameBoard.style.backgroundColor = colorDetermine(playerTurn);
+        gameBoard.style.borderTop = "50px solid " + colorDetermine(playerTurn);
     checkWinner(board)
 }})
 
@@ -140,6 +172,7 @@ colorPicker.addEventListener('click', function() {
     oColor = document.getElementById("color2").value.toUpperCase();
     gameBoard.style.borderRight = "50px solid " + oColor;
   }
+  gameBoard.style.borderTop = "50px solid " + colorDetermine(playerTurn);
 }
 )
 
@@ -147,3 +180,4 @@ colorPicker.addEventListener('click', function() {
 
 
 refreshBoard(board)
+

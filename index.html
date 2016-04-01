@@ -6,12 +6,30 @@
  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body id='body'>
-<div>It is </div><div id='turn'>WHITE's</div><div>'s turn!</div>
+<link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+<div class='turnShower'>It is </div class='turnShower'><div id='turn'>WHITE's</div><div class='turnShower'>'s turn!</div>
 
 <div></div>
 <input type="text" id='color1'>
 <input type="text" id='color2'>
 <button id='myBtn' class='myBtn'>Update colors</button>
+
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">x</span>
+    <p id='alert'>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+<div></div>
+<div></div>
 <div id='gameBoard'>
 <div id='0' class='piece'></div>
 <div id='1' class='piece'></div>
@@ -30,7 +48,7 @@
 </article>
 <div id="mydiv" style="border-style:none; position:absolute; left:-9999px; top:-9999px;"></div>
   
-  <button id='move'>Reset Game</button>
+<button id='move'>Reset Game</button>
 
 <script type="text/javascript" src="app.js"></script>
 </body>
