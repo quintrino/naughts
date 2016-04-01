@@ -84,6 +84,12 @@ button {
   transition: 4s;
 }
 
+#gameBoard div:hover {
+  transition: 1s;
+  background-color: #e6e6e6
+
+}
+
 #gameBoard div p {
   top: 50px;
   background-color: black; 
@@ -95,6 +101,7 @@ button {
 #reset {
   display: block;
   text-align: center;
+  margin:0 auto;
 }
 
 @media (max-width: 500px) {
