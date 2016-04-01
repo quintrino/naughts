@@ -1,12 +1,17 @@
 board = ['', '', '', '', '', '', '', '', '']
 // Get the modal
-var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
+var modal = document.getElementById('myModal');
 var btn = document.getElementById("modal");
+var span = document.getElementsByClassName("close")[0];
+var moveBtn = document.getElementById("move")
+var gameBoard = document.querySelector("#gameBoard")
+var colorPicker = document.getElementById("myBtn");
+var turnSection = document.getElementById('turn');
+var message = document.getElementById('message');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal 
 // btn.onclick = function() {
@@ -25,15 +30,8 @@ window.onclick = function(event) {
     }
 }
 
-var moveBtn = document.getElementById("move")
-var gameBoard = document.querySelector("#gameBoard")
-
 var xColor = 'WHITE';
 var oColor = 'BLACK';
-
-var colorPicker = document.getElementById("myBtn");
-var turnSection = document.getElementById('turn');
-var message = document.getElementById('message');
 var playerTurn = 'X';
 var aiPlayer = true;
 var alert = document.getElementById('alert')

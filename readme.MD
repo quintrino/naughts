@@ -9,7 +9,9 @@ At the beginning of the game you can choose to either play as the default colors
 
 This website has been built entirely using just Javascript, HTML and CSS.
 
-To determine if the colors entered are actual colors an invisible div has it's color set to the entered color and then checked to see if it's color actually changes or remains as empty. If it successfully changes then the color entered is determined to be an actual color that can be used 
+To determine if the colors entered are actual colors an invisible div has it's color set to the entered color and then checked to see if it's color actually changes or remains as empty. If it successfully changes then the color entered is determined to be an actual color that can be used.
+
+Using board.style.Borderright 
 
 ###Potential additions
 
