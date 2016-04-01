@@ -8,7 +8,16 @@ body {
   transition: 2s;
   font-family: Lato;
 }
+.turnShower {
+  display: inline-block;
+  color: red;
+}
 
+#turndeclarer {
+  display: block;
+  text-align: center;
+
+}
 
 #gameBoard {
   width: 398px;
@@ -86,10 +95,10 @@ body {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #BDBDBD;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
+    border: 19px solid red;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
@@ -106,4 +115,8 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+#itis:after {
+    content: "\00a0";
 }

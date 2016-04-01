@@ -37,7 +37,7 @@ var message = document.getElementById('message');
 var playerTurn = 'X';
 var aiPlayer = true;
 var alert = document.getElementById('alert')
-
+var contentborder = document.getElementById('modalContent')
 
 winningCombo = [
     [0, 1, 2],
@@ -72,22 +72,28 @@ function checkWinner(array) {
             document.getElementById('body').style.backgroundColor = xColor;
           resetBoard();
             alert.innerHTML ="The winner is " + xColor;
+            modalContent.style.border = '50px solid '+ xColor;
             modal.style.display = "block"
         } else if (Line === 'OOO') {
           document.getElementById('body').style.backgroundColor = oColor;
             resetBoard();
 
             alert.innerHTML = "The winner is " + oColor;
+            modalContent.style.border = '50px solid '+ oColor;
             modal.style.display = "block"
 
         }
 
     }
     if (board.join('').length === 9) {
-        alert("it's a tie!")
+        console.log("it's a tie");
+        alert.innerHTML = "There are no winners in War";
+        modal.style.display = "block";
         resetBoard()
     }
-    turnSection.innerHTML = colorDetermine(playerTurn);
+    turner = ' ' + colorDetermine(playerTurn);
+    console.log(turner);
+    turnSection.innerHTML =turner;
 }
 
 function resetBoard() {
@@ -173,6 +179,7 @@ colorPicker.addEventListener('click', function() {
     gameBoard.style.borderRight = "50px solid " + oColor;
   }
   gameBoard.style.borderTop = "50px solid " + colorDetermine(playerTurn);
+  turnSection.innerHTML = colorDetermine(playerTurn);
 }
 )
 
